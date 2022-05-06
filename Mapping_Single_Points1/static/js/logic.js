@@ -14,4 +14,6 @@ streets.addTo(map);
 let marker = L.marker([34.0522, -118.2437]).addTo(map);
 L.circleMarker([34.0522, -118.2437], {
     radius: 100
+    color: "black",
+    fillColor: '#ffffal'
  }).addTo(map);

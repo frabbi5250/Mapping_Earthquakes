@@ -23,9 +23,18 @@ let sanFranAirport =
             "type":"Point",
             "coordinates":[-122.375,37.61899948120117]}}
 ]};
+
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport).addTo(map);
-// Coordinates for each point to be used in the polyline.
+L.geoJSON(sanFranAirport, {
+  // We turn each feature into a marker on the map.
+  pointToLayer: function(feature, latlng) {
+    console.log(feature);
+    return L.marker(latlng)
+    .bindPopup("<h2>" + feature.properties.city + "</h2>");
+  }
+
+}).addTo(map);
+
 let line = [
   [33.9416, -118.4085],
   [37.6213, -122.3790],
